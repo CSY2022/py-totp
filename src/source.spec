@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['totp.py'],
+    ['source.py'],
     pathex=[],
     binaries=[],
     datas=[],
