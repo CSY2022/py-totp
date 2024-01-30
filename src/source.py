@@ -5,6 +5,8 @@ import pyperclip as cb
 # 时间有关
 from time import time
 from time import sleep
+from sys import exit
+from os import remove
 # 联网获取时间
 import ntplib
 # 生成密钥有关
@@ -16,6 +18,8 @@ import base64
 def init():
     # 提示用户输入密钥的界面
     secret_key = sg.popup_get_text('输入你的密钥：', title="初始化") 
+    if event == psg.WIN_CLOSED or event == 'Cancel':
+      exit()
     # 格式化密钥
     secret_key=secret_key.replace(' ','').replace('\n','').replace('\r','')
     # 创建key.txt并储存密钥
@@ -24,6 +28,7 @@ def init():
     f=open('./key.txt' ,'w')
     f.write(secret_key)
     f.close()
+    window.close()
     return secret_key
 # 与NTP服务器同步时间
 def ntp():
@@ -70,6 +75,7 @@ window=sg.Window("TOTP",layout)
 while True:
   # 防止空文件引发的bug
   if secret_key == None:
+      remove("key.txt")
       break
   # 获取时间
   ntp_time = ntp()
@@ -98,4 +104,5 @@ while True:
     if event==" 复制 TOTP ":
         cb.copy(str(otp))
         window.close()
+        exit()
     sleep(0.5)
