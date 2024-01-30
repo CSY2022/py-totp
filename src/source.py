@@ -5,8 +5,9 @@ import pyperclip as cb
 # 时间有关
 from time import time
 from time import sleep
-from sys import exit
 from os import remove
+# 提供退出实现
+import sys
 # 联网获取时间
 import ntplib
 # 生成密钥有关
@@ -17,9 +18,20 @@ import base64
 # 初始化:输入并保存密钥
 def init():
     # 提示用户输入密钥的界面
-    secret_key = sg.popup_get_text('输入你的密钥：', title="初始化") 
-    if event == psg.WIN_CLOSED or event == 'Cancel':
-      exit()
+    layout = [
+    [sg.Text('请输入你的密钥：')],
+    [ sg.InputText(size=(25,1))],
+    [sg.Button("     确定     "),sg.Button("     取消     ")],
+    ]
+    window=sg.Window("初始化",layout)
+    while True:
+      event, values = window.read()
+      if event == sg.WIN_CLOSED or event == "     取消     ":
+        window.close()
+        sys.exit()
+      if event == "     确定     " and str(values[0]) != '':
+        secret_key = str(values[0])
+        break
     # 格式化密钥
     secret_key=secret_key.replace(' ','').replace('\n','').replace('\r','')
     # 创建key.txt并储存密钥
@@ -63,7 +75,8 @@ try:
     f.close()
 except:
     secret_key=init()
-if secret_key==None:
+if secret_key == '':
+    remove("key.txt")
     secret_key=init()
 # 规定布局并显示主界面
 layout = [
@@ -73,10 +86,6 @@ layout = [
 ]
 window=sg.Window("TOTP",layout)
 while True:
-  # 防止空文件引发的bug
-  if secret_key == None:
-      remove("key.txt")
-      break
   # 获取时间
   ntp_time = ntp()
   local_time = time()
@@ -96,7 +105,7 @@ while True:
     # 防止重复读取时间，浪费资源
     current_time=delay_time+time()
     # 显示实时刷新的窗口
-    event, values = window.read(timeout=0)
+    event, values = window.read(timeout=0.5)
     # 实时更新数据
     window['-TOTP-'].update(str(otp))
     window['-TIME-'].update(str(int(30-(current_time % 30)+1))+'s')
@@ -104,5 +113,7 @@ while True:
     if event==" 复制 TOTP ":
         cb.copy(str(otp))
         window.close()
-        exit()
-    sleep(0.5)
+        sys.exit()
+    if event == sg.WIN_CLOSED:
+        window.close()
+        sys.exit()
