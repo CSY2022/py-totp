@@ -32,11 +32,7 @@
 ![screenshot 3](https://mirror.ghproxy.com/?q=https://raw.githubusercontent.com/CSY2022/py-totp/main/img/2.png)      
 出现了上图所示的界面后输入你的 **Secret Key**
 如果你手头上拿到的是一个二维码，而不是Secret Key，你可以使用解码器(如草料二维码)对你拿到的二维码解码(不会的可以百度)，
-会得到那一串形如
-```   
-otpauth://totp/Github/XXX?period=30&digits=6&algorithm=SHA1&secret=ABCDEFGHIJKLMNOP&issuer=XXXXXX
-```    
-的东西，其中 **ABCDEFGHIJKLMNOP** 就是你的Secret Key，填入即可。     
+会得到那一串形如 otpauth://totp/Github/XXX?period=30&digits=6&algorithm=SHA1&secret=ABCDEFGHIJKLMNOP&issuer=XXXXXX   的东西，其中 **ABCDEFGHIJKLMNOP** 就是你的Secret Key，填入即可。     
 
 3. 接着会出现如图的界面    
 ![screenshot 4](https://mirror.ghproxy.com/?q=https://raw.githubusercontent.com/CSY2022/py-totp/main/img/1.png)     
