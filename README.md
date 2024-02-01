@@ -11,7 +11,7 @@
   软件截图
 </h5>
 
-![screenshot 1](https://mirror.ghproxy.com/?q=https://raw.githubusercontent.com/CSY2022/py-totp/main/img/5.png)
+![screenshot 1](https://mirror.ghproxy.com/?q=https://raw.githubusercontent.com/CSY2022/py-totp/main/img/4.png)
 <h5 align="center">
   软件截图
 </h5>
