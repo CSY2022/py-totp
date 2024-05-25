@@ -26,9 +26,12 @@
 
 ## 使用方法
 
-1. 下载 - 您可以从下方的[Releases](https://github.com/CSY2022/py-totp/releases/)下载稳定版本。如果你极富有探险精神，你也可以去Github Actions最新构建的Artifacts中下载实时构建的测试版本(不推荐，由此造成的电脑死机，人类灭绝，地球爆炸，宇宙崩塌等后果责任自负)    
-
+1. 下载 - 您可以从下方的[Releases](https://github.com/CSY2022/py-totp/releases/)下载稳定版本。如果你极富有探险精神，你也可以去Github Actions最新构建的Artifacts中下载实时构建的测试版本(不推荐，由此造成的电脑死机，人类灭绝，地球爆炸，宇宙崩塌等后果责任自负)
+ 
+Pyinstaller打包实时状态
 <a href="https://github.com/CSY2022/py-totp/actions"><img src="https://shields.io/github/actions/workflow/status/CSY2022/py-totp/main.yml?branch=main&logo=github&label=Build&style=for-the-badge" align="center" /></a>
+Nuitka打包实时状态
+<a href="https://github.com/CSY2022/py-totp/actions"><img src="https://shields.io/github/actions/workflow/status/CSY2022/py-totp/main2.yml?branch=main&logo=github&label=Build&style=for-the-badge" align="center" /></a>
 
 2. 下载完成后打开     
 ![screenshot 3](https://mirror.ghproxy.com/?q=https://raw.githubusercontent.com/CSY2022/py-totp/main/img/2.png)      
