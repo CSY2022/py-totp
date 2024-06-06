@@ -1,4 +1,4 @@
 ntplib==0.4.0
 pyperclip==1.8.2
-PySimpleGUI==5.0.5
-PySimpleGUI==5.0.5
+PySimpleGUI==4.14.1
+PySimpleGUI==4.14.1
