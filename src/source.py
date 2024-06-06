@@ -103,7 +103,7 @@ def setup():
     if secret_key == '':
         remove("key.txt")
         secret_key=init()
-def main():
+def mainfuction():
     global current_time
     global secret_key
     # 规定布局并显示主界面
@@ -155,4 +155,4 @@ def main():
             sg.popup_ok('密钥有误')
             init()                  
 setup()
-main()
+mainfuction()
